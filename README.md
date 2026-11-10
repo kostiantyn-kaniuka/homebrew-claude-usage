@@ -15,6 +15,14 @@ Small and medium sizes. Bars turn orange near the limit and red at the limit.
 Requirements: macOS 14+, [Homebrew](https://brew.sh), and [Claude Code](https://claude.com/claude-code) installed and logged in (Pro/Max plan).
 
 ```sh
+curl -fsSL https://raw.githubusercontent.com/kostiantyn-kaniuka/homebrew-claude-usage/main/install.sh | bash
+```
+
+The [install script](install.sh) checks your Mac (macOS version, Homebrew, Command Line Tools, Claude Code login), then installs or updates the widget. Run the same line again to update. Prefer to read it first? Download it, look, then run `bash install.sh`.
+
+Or with Homebrew directly:
+
+```sh
 brew install kostiantyn-kaniuka/claude-usage/claude-usage && claude-usage install
 ```
 
