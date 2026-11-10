@@ -1,0 +1,6 @@
+build/
+dist/
+ClaudeUsage.xcodeproj/
+.DS_Store
+*.json
+.env
