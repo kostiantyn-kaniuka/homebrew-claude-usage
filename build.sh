@@ -10,6 +10,8 @@ MIN_MACOS="14.0"
 ARCH="$(uname -m)"
 SDK="$(xcrun --sdk macosx --show-sdk-path)"
 TARGET="${ARCH}-apple-macos${MIN_MACOS}"
+SDK_VER="$(xcrun --sdk macosx --show-sdk-version)"
+SDK_BUILD="$(xcrun --sdk macosx --show-sdk-build-version)"
 
 APP="$OUT/ClaudeUsage.app"
 APPEX="$APP/Contents/PlugIns/ClaudeUsageWidget.appex"
@@ -32,12 +34,20 @@ cat > "$APP/Contents/Info.plist" <<EOF
 <plist version="1.0"><dict>
   <key>CFBundleExecutable</key><string>ClaudeUsage</string>
   <key>CFBundleIdentifier</key><string>local.claudeusage.app</string>
-  <key>CFBundleName</key><string>ClaudeUsage</string>
+  <key>CFBundleName</key><string>Claude Usage</string>
   <key>CFBundleDisplayName</key><string>Claude Usage</string>
   <key>CFBundlePackageType</key><string>APPL</string>
   <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
   <key>CFBundleVersion</key><string>$VERSION</string>
+  <key>CFBundleDevelopmentRegion</key><string>en</string>
+  <key>CFBundleSupportedPlatforms</key><array><string>MacOSX</string></array>
+  <key>DTPlatformName</key><string>macosx</string>
+  <key>DTPlatformVersion</key><string>$SDK_VER</string>
+  <key>DTPlatformBuild</key><string>$SDK_BUILD</string>
+  <key>DTSDKName</key><string>macosx$SDK_VER</string>
+  <key>DTSDKBuild</key><string>$SDK_BUILD</string>
+  <key>DTCompiler</key><string>com.apple.compilers.llvm.clang.1_0</string>
   <key>LSMinimumSystemVersion</key><string>$MIN_MACOS</string>
   <key>LSUIElement</key><true/>
 </dict></plist>
@@ -55,6 +65,14 @@ cat > "$APPEX/Contents/Info.plist" <<EOF
   <key>CFBundleInfoDictionaryVersion</key><string>6.0</string>
   <key>CFBundleShortVersionString</key><string>$VERSION</string>
   <key>CFBundleVersion</key><string>$VERSION</string>
+  <key>CFBundleDevelopmentRegion</key><string>en</string>
+  <key>CFBundleSupportedPlatforms</key><array><string>MacOSX</string></array>
+  <key>DTPlatformName</key><string>macosx</string>
+  <key>DTPlatformVersion</key><string>$SDK_VER</string>
+  <key>DTPlatformBuild</key><string>$SDK_BUILD</string>
+  <key>DTSDKName</key><string>macosx$SDK_VER</string>
+  <key>DTSDKBuild</key><string>$SDK_BUILD</string>
+  <key>DTCompiler</key><string>com.apple.compilers.llvm.clang.1_0</string>
   <key>LSMinimumSystemVersion</key><string>$MIN_MACOS</string>
   <key>NSExtension</key><dict>
     <key>NSExtensionPointIdentifier</key><string>com.apple.widgetkit-extension</string>
