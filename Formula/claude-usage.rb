@@ -1,7 +1,7 @@
 class ClaudeUsage < Formula
   desc "macOS desktop widget showing your Claude plan usage limits"
-  homepage "REPO_URL"
-  url "REPO_URL.git", using: :git, tag: "v1.0.0"
+  homepage "https://github.com/kostiantyn-kaniuka/homebrew-claude-usage"
+  url "https://github.com/kostiantyn-kaniuka/homebrew-claude-usage.git", using: :git, tag: "v1.0.0"
   version "1.0.0"
 
   depends_on macos: :sonoma
