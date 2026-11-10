@@ -15,6 +15,7 @@ case "${1:-help}" in
     rm -rf "$DEST_APP"
     cp -R "$SRC_APP" "$DEST_APP"
     open "$DEST_APP"
+    killall chronod 2>/dev/null || true   # make the widget gallery pick up the new version
     echo "Installed to $DEST_APP and started (look for ✱ in the menu bar)."
     echo "Add the widget: right-click desktop → Edit Widgets… → search \"Claude Usage\"."
     ;;

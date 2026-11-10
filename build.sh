@@ -26,7 +26,8 @@ echo "Compiling helper app…"
 
 echo "Compiling widget…"
 "${SWIFTC[@]}" -application-extension Widget/*.swift Shared/*.swift \
-  -Xlinker -application_extension -o "$APPEX/Contents/MacOS/ClaudeUsageWidget"
+  -Xlinker -application_extension -Xlinker -e -Xlinker _NSExtensionMain \
+  -o "$APPEX/Contents/MacOS/ClaudeUsageWidget"
 
 cat > "$APP/Contents/Info.plist" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
